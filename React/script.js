@@ -40,7 +40,7 @@ function rememberMyFilms() {
             i--;
         }
     }
-} 
+}
 
 rememberMyFilms();
 
@@ -57,18 +57,17 @@ function detectPersonalLevel() {
 }
 detectPersonalLevel();
 
-function showMyDB () {
+function showMyDB() {
     if (!personalMovieDB.private) {
-console.log(personalMovieDB);
+        console.log(personalMovieDB);
     }
 }
 showMyDB();
 
-function writeYourGenres () {
-    for (let i = 1; i<=3; i++) {
-        const genre = prompt (`Ваш любимый жанр под номером ${i}`);
-    personalMovieDB.genres[i-1] = genre;
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
     }
 
 }
-writeYourGenres ();
+writeYourGenres();
