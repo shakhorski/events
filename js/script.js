@@ -37,12 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (Event) => {
         Event.preventDefault();
-        const newFilm = inpt.value;
+        let newFilm = inpt.value;
         const favorite = chbox.checked;
-
-        movieDB.movies.push(newFilm);
-        sortArr(movieDB.movies);
-        createMovieList(movieDB.movies, list);
+        if (newFilm) {
+            if (newFilm.length > 21) {
+                newFilm = `${newFilm.substring(0, 22)}...`;
+            }
+            movieDB.movies.push(newFilm);
+            sortArr(movieDB.movies);
+            createMovieList(movieDB.movies, list);
+        }
         Event.target.reset();
     });
 
@@ -73,6 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </li>
         `;
         });
+    document.querySelectorAll('.delete').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            btn.parentElement.remove();
+            movieDB.movies.splice(i, 1);
+        });
+
+    });
 
     }
 
